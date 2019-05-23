@@ -1,0 +1,2 @@
+[19-Apr-2018 17:31:03 America/New_York] PHP Fatal error:  Call to a member function setAttribute() on null in /home/saibonso/public_html/ems/src/Model/Database.php on line 36
+[13-May-2018 03:08:31 America/New_York] PHP Fatal error:  Call to a member function setAttribute() on null in /home/saibonso/public_html/ems/src/Model/Database.php on line 40

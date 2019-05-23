@@ -1,0 +1,24 @@
+[14-Nov-2018 07:58:01 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2' in /home/wwwbcsirlabsctgc/public_html/library/src/report/report.php:74
+Stack trace:
+#0 /home/wwwbcsirlabsctgc/public_html/library/src/report/report.php(74): PDO->query('SELECT * FROM v...')
+#1 /home/wwwbcsirlabsctgc/public_html/library/views/report/book_issued_print.php(12): App\report\report->viewBookIssued()
+#2 {main}
+  thrown in /home/wwwbcsirlabsctgc/public_html/library/src/report/report.php on line 74
+[14-Nov-2018 07:58:06 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2' in /home/wwwbcsirlabsctgc/public_html/library/src/report/report.php:74
+Stack trace:
+#0 /home/wwwbcsirlabsctgc/public_html/library/src/report/report.php(74): PDO->query('SELECT * FROM v...')
+#1 /home/wwwbcsirlabsctgc/public_html/library/views/report/book_issued_print.php(12): App\report\report->viewBookIssued()
+#2 {main}
+  thrown in /home/wwwbcsirlabsctgc/public_html/library/src/report/report.php on line 74
+[14-Nov-2018 07:58:08 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2' in /home/wwwbcsirlabsctgc/public_html/library/src/report/report.php:74
+Stack trace:
+#0 /home/wwwbcsirlabsctgc/public_html/library/src/report/report.php(74): PDO->query('SELECT * FROM v...')
+#1 /home/wwwbcsirlabsctgc/public_html/library/views/report/book_issued_print.php(12): App\report\report->viewBookIssued()
+#2 {main}
+  thrown in /home/wwwbcsirlabsctgc/public_html/library/src/report/report.php on line 74
+[18-Dec-2018 08:19:22 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2' in /home/wwwbcsirlabsctgc/public_html/library/src/report/report.php:74
+Stack trace:
+#0 /home/wwwbcsirlabsctgc/public_html/library/src/report/report.php(74): PDO->query('SELECT * FROM v...')
+#1 /home/wwwbcsirlabsctgc/public_html/library/views/report/book_issued_print.php(12): App\report\report->viewBookIssued()
+#2 {main}
+  thrown in /home/wwwbcsirlabsctgc/public_html/library/src/report/report.php on line 74

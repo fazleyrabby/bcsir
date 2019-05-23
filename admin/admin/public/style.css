@@ -1,0 +1,25 @@
+.ebox {
+	background: #FAFAFA;
+	padding: 25px;
+	margin:  50px 0px;
+	border: 2px solid #e3e3e2;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+/* -----------------------------rabby-edit----------------- */
+
+input[type=submit]{
+	padding:5px 15px; 
+	background:#79b82e; 
+	border:0 none;
+	color: #fff !important;
+	cursor:pointer;
+	-webkit-border-radius: 5px;
+	border-radius: 5px; 
+}
+
+input[type=submit]:hover{
+	background:#c1552b; 
+}

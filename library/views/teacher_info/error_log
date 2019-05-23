@@ -1,0 +1,50 @@
+[20-Sep-2017 16:03:08 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: no parameters were bound' in /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php:177
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php(177): PDOStatement->execute(Array)
+#1 /home/saibonso/public_html/ems/views/teacher_info/store.php(14): App\teacherInfo\teacherInfo->store()
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php on line 177
+[20-Sep-2017 16:05:12 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: no parameters were bound' in /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php:179
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php(179): PDOStatement->execute(Array)
+#1 /home/saibonso/public_html/ems/views/teacher_info/store.php(14): App\teacherInfo\teacherInfo->store()
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php on line 179
+[21-Jan-2018 14:45:00 America/New_York] PHP Fatal error:  Call to a member function setAttribute() on null in /home/saibonso/public_html/ems/src/Model/Database.php on line 29
+[09-Feb-2018 07:34:28 America/New_York] PHP Fatal error:  Call to a member function setAttribute() on null in /home/saibonso/public_html/ems/src/Model/Database.php on line 35
+[09-Feb-2018 07:37:09 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') M.A (English)', '', 'Late Kabir Ahmed', 'Late Mollika Khatun', 'M', 'I', 'Bang' at line 2' in /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php:177
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php(177): PDOStatement->execute(Array)
+#1 /home/saibonso/public_html/ems/views/teacher_info/store.php(14): App\teacherInfo\teacherInfo->store()
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php on line 177
+[09-Feb-2018 07:37:29 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') M.A (English)', '', 'Late Kabir Ahmed', 'Late Mollika Khatun', 'M', 'I', 'Bang' at line 2' in /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php:177
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php(177): PDOStatement->execute(Array)
+#1 /home/saibonso/public_html/ems/views/teacher_info/store.php(14): App\teacherInfo\teacherInfo->store()
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php on line 177
+[19-Feb-2018 03:16:50 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '', '', 'Babul Mia', 'Kohinoor Begum', 'M', 'I', 'Bangladeshi', '', '01816236875'' at line 2' in /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php:224
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php(224): PDOStatement->execute(Array)
+#1 /home/saibonso/public_html/ems/views/teacher_info/store.php(7): App\teacherInfo\teacherInfo->singleStore()
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php on line 224
+[19-Feb-2018 03:26:07 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '', '', 'Babul Miah', 'Kohinoor Begum', 'M', 'I', 'Bangladeshi', '', '01816236875' at line 2' in /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php:224
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php(224): PDOStatement->execute(Array)
+#1 /home/saibonso/public_html/ems/views/teacher_info/store.php(7): App\teacherInfo\teacherInfo->singleStore()
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php on line 224
+[20-Feb-2018 03:37:46 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '', 'Bayzid Bostami', 'Chittagong', 'Bidyakut', 'Bidyakut', 'Nobinagar', 'Bramonb' at line 2' in /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php:224
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php(224): PDOStatement->execute(Array)
+#1 /home/saibonso/public_html/ems/views/teacher_info/store.php(7): App\teacherInfo\teacherInfo->singleStore()
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php on line 224
+[20-Feb-2018 03:47:58 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '', 'Bayzid Bostami', 'Chittagong', 'Bidyakut', 'Bidyakut', 'Nobinagar', 'Bramonb' at line 2' in /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php:224
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php(224): PDOStatement->execute(Array)
+#1 /home/saibonso/public_html/ems/views/teacher_info/store.php(7): App\teacherInfo\teacherInfo->singleStore()
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/teacherInfo/teacherInfo.php on line 224

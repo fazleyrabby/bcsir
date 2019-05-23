@@ -1,0 +1,7 @@
+body {
+  display: none;
+}
+
+.message ul.sidemenu li a {
+  width:98%;
+}

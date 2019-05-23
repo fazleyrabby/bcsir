@@ -1,0 +1,14 @@
+/**
+ *
+ * Apply Here your Custom CSS
+ *
+*/
+
+body {
+	
+}
+
+.panel-primary {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.11);
+    -webkit-box-shadow: 0 5px 20px rgba(0,0,0,0.11);
+}

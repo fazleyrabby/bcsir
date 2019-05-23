@@ -1,0 +1,61 @@
+[29-Aug-2018 18:28:09 Asia/Dhaka] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'rdibd_hs.user_level' doesn't exist' in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php:328
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php(328): PDO->query('select * from u...')
+#1 /home/saibonso/public_html/ems/views/user_info/index.php(4): App\dataTableQuery\dataTableQuery->index('user_level')
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php on line 328
+[29-Aug-2018 18:28:15 Asia/Dhaka] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'rdibd_hs.user_level' doesn't exist' in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php:328
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php(328): PDO->query('select * from u...')
+#1 /home/saibonso/public_html/ems/views/user_info/index.php(4): App\dataTableQuery\dataTableQuery->index('user_level')
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php on line 328
+[29-Aug-2018 18:28:22 Asia/Dhaka] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'rdibd_hs.user_level' doesn't exist' in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php:328
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php(328): PDO->query('select * from u...')
+#1 /home/saibonso/public_html/ems/views/user_info/index.php(4): App\dataTableQuery\dataTableQuery->index('user_level')
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php on line 328
+[30-Aug-2018 00:36:22 Asia/Dhaka] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'rdibd_hs.user_level' doesn't exist' in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php:328
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php(328): PDO->query('select * from u...')
+#1 /home/saibonso/public_html/ems/views/user_info/index.php(4): App\dataTableQuery\dataTableQuery->index('user_level')
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php on line 328
+[30-Aug-2018 08:26:08 Asia/Dhaka] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'rdibd_hs.user_level' doesn't exist' in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php:328
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php(328): PDO->query('select * from u...')
+#1 /home/saibonso/public_html/ems/views/user_info/index.php(4): App\dataTableQuery\dataTableQuery->index('user_level')
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php on line 328
+[30-Aug-2018 02:27:14 UTC] PHP Parse error:  syntax error, unexpected 'elseif' (T_ELSEIF) in /home/saibonso/public_html/ems/src/Model/Database.php on line 26
+[30-Aug-2018 05:52:17 UTC] PHP Fatal error:  Call to a member function setAttribute() on null in /home/saibonso/public_html/ems/src/Model/Database.php on line 47
+[10-Sep-2018 22:11:59 Asia/Dhaka] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'saibonso_cda.user_level' doesn't exist' in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php:328
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php(328): PDO->query('select * from u...')
+#1 /home/saibonso/public_html/ems/views/user_info/index.php(4): App\dataTableQuery\dataTableQuery->index('user_level')
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php on line 328
+[10-Sep-2018 16:53:00 UTC] PHP Fatal error:  Call to a member function setAttribute() on null in /home/saibonso/public_html/ems/src/Model/Database.php on line 48
+[11-Sep-2018 17:55:11 UTC] PHP Warning:  PDO::__construct(): php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/saibonso/public_html/ems/src/Model/Database.php on line 17
+[11-Sep-2018 17:55:11 UTC] PHP Warning:  PDO::__construct(): php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/saibonso/public_html/ems/src/Model/Database.php on line 17
+[11-Sep-2018 17:55:11 UTC] PHP Fatal error:  Call to a member function query() on null in /home/saibonso/public_html/ems/src/Auth/Auth.php on line 69
+[03-Oct-2018 11:09:36 UTC] PHP Fatal error:  Call to a member function setAttribute() on null in /home/saibonso/public_html/ems/src/Model/Database.php on line 52
+[08-Oct-2018 12:00:46 Asia/Dhaka] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'saibonso_sgs.user_level' doesn't exist' in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php:328
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php(328): PDO->query('select * from u...')
+#1 /home/saibonso/public_html/ems/views/user_info/index.php(4): App\dataTableQuery\dataTableQuery->index('user_level')
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php on line 328
+[08-Oct-2018 12:02:37 Asia/Dhaka] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'saibonso_sgs.user_level' doesn't exist' in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php:328
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php(328): PDO->query('select * from u...')
+#1 /home/saibonso/public_html/ems/views/user_info/index.php(4): App\dataTableQuery\dataTableQuery->index('user_level')
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php on line 328
+[09-Oct-2018 14:51:05 Asia/Dhaka] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'saibonso_cps.user_level' doesn't exist' in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php:328
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php(328): PDO->query('select * from u...')
+#1 /home/saibonso/public_html/ems/views/user_info/index.php(4): App\dataTableQuery\dataTableQuery->index('user_level')
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/dataTableQuery/dataTableQuery.php on line 328

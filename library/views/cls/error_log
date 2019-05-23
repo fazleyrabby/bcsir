@@ -1,0 +1,12 @@
+[30-Aug-2018 06:05:36 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2' for key 'PRIMARY'' in /home/saibonso/public_html/ems/src/cls/cls.php:44
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/cls/cls.php(44): PDOStatement->execute(Array)
+#1 /home/saibonso/public_html/ems/views/cls/store.php(7): App\cls\cls->store()
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/cls/cls.php on line 44
+[30-Aug-2018 06:05:47 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '4' for key 'PRIMARY'' in /home/saibonso/public_html/ems/src/cls/cls.php:44
+Stack trace:
+#0 /home/saibonso/public_html/ems/src/cls/cls.php(44): PDOStatement->execute(Array)
+#1 /home/saibonso/public_html/ems/views/cls/store.php(7): App\cls\cls->store()
+#2 {main}
+  thrown in /home/saibonso/public_html/ems/src/cls/cls.php on line 44

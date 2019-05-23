@@ -1,0 +1,31 @@
+[25-Jul-2018 20:53:57 UTC] PHP Fatal error:  Call to a member function setAttribute() on null in /home/saibonso/public_html/ems/src/Model/Database.php on line 47
+[05-Nov-2018 11:00:56 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'saibonso_library.all_student' doesn't exist' in /home/saibonso/public_html/library/src/institution/institution.php:248
+Stack trace:
+#0 /home/saibonso/public_html/library/src/institution/institution.php(248): PDOStatement->execute(Array)
+#1 /home/saibonso/public_html/library/views/institution/update.php(7): App\institution\institution->update()
+#2 {main}
+  thrown in /home/saibonso/public_html/library/src/institution/institution.php on line 248
+[05-Nov-2018 11:01:06 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1044 Access denied for user 'saibonso_library'@'localhost' to database 'abc'' in /home/saibonso/public_html/library/src/institution/institution.php:156
+Stack trace:
+#0 /home/saibonso/public_html/library/src/institution/institution.php(156): PDO->exec('DROP DATABASE a...')
+#1 /home/saibonso/public_html/library/views/institution/delete.php(6): App\institution\institution->delete()
+#2 {main}
+  thrown in /home/saibonso/public_html/library/src/institution/institution.php on line 156
+[05-Nov-2018 11:01:07 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1044 Access denied for user 'saibonso_library'@'localhost' to database 'abc'' in /home/saibonso/public_html/library/src/institution/institution.php:156
+Stack trace:
+#0 /home/saibonso/public_html/library/src/institution/institution.php(156): PDO->exec('DROP DATABASE a...')
+#1 /home/saibonso/public_html/library/views/institution/delete.php(6): App\institution\institution->delete()
+#2 {main}
+  thrown in /home/saibonso/public_html/library/src/institution/institution.php on line 156
+[05-Nov-2018 11:02:09 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'saibonso_library.all_student' doesn't exist' in /home/saibonso/public_html/library/src/institution/institution.php:248
+Stack trace:
+#0 /home/saibonso/public_html/library/src/institution/institution.php(248): PDOStatement->execute(Array)
+#1 /home/saibonso/public_html/library/views/institution/update.php(7): App\institution\institution->update()
+#2 {main}
+  thrown in /home/saibonso/public_html/library/src/institution/institution.php on line 248
+[05-Nov-2018 11:02:12 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'saibonso_library.all_student' doesn't exist' in /home/saibonso/public_html/library/src/institution/institution.php:248
+Stack trace:
+#0 /home/saibonso/public_html/library/src/institution/institution.php(248): PDOStatement->execute(Array)
+#1 /home/saibonso/public_html/library/views/institution/update.php(7): App\institution\institution->update()
+#2 {main}
+  thrown in /home/saibonso/public_html/library/src/institution/institution.php on line 248

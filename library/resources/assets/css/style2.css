@@ -1,0 +1,454 @@
+/* -----------------  page styles -------------------------------------------------------*/
+
+body {
+	padding:0;
+	margin:0;
+	font:11px Verdana, sans-serif;
+	line-height: 17px;
+	background:#fff url(../images/bodybg.png) center repeat-y;
+	color: #555;
+	color: #555;
+ }
+ /*#wrappertop{1280px;
+ height:180px;
+ background-color:#98c5ff;
+ float:left;}*/
+#wrapper {
+	margin:2px auto;
+	width:900px;
+	padding:0;
+/*	background:#fff;*/
+}
+
+/* -----------------  general styles  -------------------------------------------------------*/
+
+a { color:#631e19; text-decoration: underline; }
+a:hover { color:#894e4e; text-decoration: none; }
+
+p {
+	margin:0;
+	padding-top:10px;
+	text-align:justify;
+	}
+h2 { font-weight:bold; font-size:12px; padding:0 0 4px 0; margin: 0; color:#0267ff; background:none; border-bottom: 1px dotted #9ac2ff; }
+h3 { font-weight:bold; font-size:12px; color:#598527; }
+h4 { font-weight:bold; font-size:26px; color:blue; margin-top:10px; margin-bottom:0;text-shadow:2px 2px #ffffff;}
+ul { margin: 0; padding : 0; list-style : none; }
+img { border: 0;}
+.pic{margin-top:8px;}
+/* -----------------  top info  -------------------------------------------------------*/
+
+#header { clear:both; width:900px; height:160px;background:#FFFFCC; background-image: url(../images/banner.png);  background-repeat:no-repeat; margin:0 auto; }
+#logo{width:90px;height:113px; background-image:url(../images/logo.png); background-repeat:no-repeat;float:left;margin:20px 0 0 20px;}
+
+#title{ width:auto;margin:40px 0 0 20px; float:left;height:50px;  /*background-image:url(../images/name.png);background-repeat:no-repeat;*/}
+.info{padding-top:20px;}
+.info li{list-style:none; font-weight:bold; text-align:right;}
+.info li a{text-decoration:none; color:#000000;}
+.info li a:hover{color:#9933CC;}
+#title p {font-size: 0.9em; color: #808080; padding: 0; background: inherit;}
+#menu {background-color:#669900; width: 900px; height:37px; float:left; margin:0px 0px 20px 0; text-align:left;}
+/*#menu ul li {  display:inline;color:#FFFFFF;}
+#menu ul li a {  color:#fff; font-size:14px; text-decoration:none;padding:0 12px 1px 12px;line-height:30px;
+background:none;}
+#menu li a:hover { background: none;color:#d4e5ff;} 
+#menu li:hover { color:#d4e5ff;} 
+*/
+#nav{
+	float:left;
+	width:900px;
+	list-style:none;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+#nav li{
+	float:left;
+	position:relative;
+	display:block;
+	font-size:14px;
+	border-left:1px solid #fff;
+}
+#nav li a{
+	display:block;
+	color:#fff;
+	text-decoration:none;
+	padding:0 11px 1px 20px;
+	line-height:35px;
+	
+}
+#nav li a:hover{
+	color:#fff;
+	background:#6b0c36; /* Solid colour fall-back */
+	
+}
+
+/*--- DROPDOWN ---*/
+#nav ul{
+	list-style:none;
+	position:absolute;
+	left:10px; /* Hide off-screen when not needed (this is more accessible than display:none;) */
+	opacity:0; /* Set initial state to transparent */
+	z-index:9999;
+	}
+#nav ul li{
+	padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
+
+	float:none;
+}
+#nav ul a{
+	white-space:nowrap; /* Stop text wrapping and creating multi-line dropdown items */
+	display:block;
+}
+#nav li:hover ul{ /* Display the dropdown on hover */
+	left:0; /* Bring back on-screen when needed */
+	opacity:1; /* Fade to opaque */
+}
+#nav li:hover a{ /* Set styles for top level when dropdown is hovered */
+	height:35px;
+	background:#778899; /* Solid colour fall-back */
+
+	background:rgba (190,190,190); /* It'll look nice semi-transparent */
+	text-decoration:none;
+}
+#nav li:hover ul a{ /* Override some top level styles when dropdown is hovered */
+	text-decoration:none;
+	}
+#nav li:hover ul li a:hover{ /* Set styles for dropdown when items are hovered */
+	background:#333; /* Solid colour fall-back */
+
+	background:rgba(51,51,51,0.75); /* It'll look nice semi-transparent */
+	
+	}
+
+
+/* ----------------- Main content ----------------------------*/
+
+#homepic {
+	width:899px;
+	height:400px;
+	margin:20px 0 10px 0;
+	/*background: url(../images/school.jpg) no-repeat;*/
+	border:1px solid #9ac2ff;
+	
+	}
+
+.message {
+	position:absolute;
+	width:300px;
+	float:left;
+	margin:25px 0px 0px 50px;
+	}
+	
+.message h4 {font-family:"Trebuchet MS", Verdana; margin:0; color:#0267ff;}
+
+#bottomcontent{
+	width:898px;
+	border:1px solid #9ac2ff;
+	clear:both;
+}
+
+
+.left {
+	float: right;
+	width: 200px;
+	margin: 0 6px 5px 0;
+	padding:10px;
+	}
+.middle {
+	float: right;
+	width: 410px;
+	margin: 0 6px 5px 0;
+	padding:10px;
+}
+.right {
+	float: right;
+	width: 200px;
+	margin: 0 6px 5px 0;
+	padding:10px;
+}
+
+.thumbs img{
+	position:relative;
+	padding:1px;
+	margin:5px 8px 5px 9px;
+	border:2px solid #631e19;
+	background:none;
+}
+.thumbs img:hover{
+	border:2px solid #c5c5c5;
+	background:none;
+}
+
+.message ul.sidemenu {
+	margin:0;
+	padding:0;
+	list-style:none;
+	margin-top:10px;
+	}
+	
+.message ul.sidemenu li a {
+	color:#333333;
+	font-weight:bold;
+	text-decoration:none;
+	padding:5px 0 3px 20px;
+	background:url(../images/arrow.png) 0 8px no-repeat;
+	display:block;
+	}
+.message ul.sidemenu li a:hover {
+	color:#0267ff;
+	}
+.col1 {
+	width:230px;
+	padding:10px 0 10px 15px;
+	float:left;
+	}
+.col2 {
+	width:600px;
+	margin-left:250px;
+	padding:10px 20px;
+	}
+	
+#col21{width:200px; float:left; padding-top:15px;}
+#col22{width:200px; float:left;} 
+#col23{width:200px; float:left;}
+.col2 p {
+	margin-bottom:15px;
+	}
+	
+.col1Contact {
+	width:400px;
+	padding:10px 0 10px 15px;
+	float:left;
+	}
+.col2Contact {
+	margin-left:420px;
+	padding:10px 20px;
+	}
+a.readon {
+	font-weight:bold;
+	background:url(../images/arrow.png) right 8px no-repeat;
+	display:block;
+	padding:3px 12px 3px 0;
+	text-decoration:none;
+	width:70px;
+}
+
+ul.bullet-1 { margin-top:10px; margin-bottom:10px;}
+ul.bullet-1 li { padding-left:20px; background:url(../images/check.gif) 0 3px no-repeat; margin-bottom:5px; }
+ul.bullet-2 { margin-top:10px; margin-bottom:10px;}
+ul.bullet-2 li { padding-left:0px;list-style:disc; margin:0px 0px 5px 20px; }
+
+
+
+div.location {
+	width:296px;
+	position:relative;
+	}
+div.location img {
+	border:1px solid #EEE;
+	padding:10px;
+	}
+div.location h3 {margin-bottom:5px;}	
+
+
+.subject, .name, .email, #website {
+	width: 380px;
+}
+
+.message{
+	width:380px;
+}
+#table {
+	margin-top:10px;
+	margin-bottom:10px;		
+}
+#tr { background: #fff; }
+#tr.altrow { background: #F9F9F9;	}
+#th, td {
+	text-align: left;			
+	border-width: 1px;
+}
+#th {
+	color: #7BA857;
+	background: #EFFAE6;
+	padding: .8em 1em;	
+  	border-color: #DFF4D5 #D3EFC3 #A7DF8A #D3EFC3;	
+}
+#td {
+	border-color: #EFEFEF;	
+	padding: .7em 1em;	
+}	
+
+label {
+	font-weight: bold; 
+	color: #7BA857;
+}
+input:focus, select:focus, textarea:focus {
+	color: #7BA857;
+	background: #EFFAE6;
+}
+input, select, textarea {
+	padding: 5px;
+	color: #6A6969;
+	border-width: 1px;
+	border-style: solid;
+  	border-color: #d4d4d4 #ebebeb #ebebeb #d4d4d4; 	
+	font: 11px 'Lucida Grande', Verdana, Helvetica, sans-serif;
+}
+
+input.button { 
+	font: bold 12px Arial, Sans-serif; 
+	height: 30px;
+	margin: 0;
+	padding: 2px 3px; 
+	color: #fff;
+	background: #9CCF5F;
+	
+	border-width: 1px;
+  	border-style: solid;
+  	border-color: #B6DE8F #8DB836 #8DB836 #B6DE8F;
+}
+/* ----------------- Bottom content ----------------------*/
+
+#footer { background-color:#fff; height:45px;}
+#footer a {color: #ffffff; background: inherit; width:900px;}
+
+/* clearing */
+.clearer { clear: both; }
+.clear {	display:inline-block; }
+.clear:after {
+	display:block; 
+	visibility:hidden; 
+	clear:both; 
+	height:0; 
+	content: "."; 
+}
+
+.required{
+	color:#FF0000;
+	padding:0px 5px;
+}
+
+img.img{
+	float:left;
+	border:1px solid #ccc;
+	padding:5px;
+	margin-right:5px;
+	width:140px;
+}
+
+.gallery ul li{
+	list-style:none;
+	float:left;
+	margin:10px;
+}
+
+#Login {
+    width:200px;
+    height:auto;
+	float:right;
+	font:11px Verdana, Arial, Helvetica, sans-serif;
+	margin-top:20px;
+}
+
+#Login input,  textarea tr {
+	font:12px Verdana, Arial, Helvetica, sans-serif;
+	color:#333333;
+	padding:3px;
+	border:#0099CC 1px solid;
+	-moz-border-radius:6px 6px 6px 6px;
+	-webkit-border-radius:0px 6px 0 6px;
+	width:115px;
+}
+#foot{
+width:700px;
+height:30px;
+float:left;}
+
+#company{
+width:32px;
+height:30px;
+float:right;
+background-image:url(../images/fabico.jpg);
+background-repeat:no-repeat;
+margin:10px 3px 20px 0;
+}
+
+.n1{
+width:550px;
+height:80px;
+border-bottom:1px solid #CCCCCC;
+margin-bottom:3px;
+}
+.readon1 {
+	font-weight:bold;
+	display:block;
+	padding:3px 12px 3px 0;
+	text-decoration:none;
+	width:70px;
+	float:right;
+}
+#img{
+width:450px;
+height:337px;
+background-image:url(../images/gallery/5.jpg);
+}
+
+.faculty{
+	margin:10px 0;
+	width:400px;
+}
+
+.faculty table{
+	border-left:1px solid #ccc;
+	border-top:1px solid #ccc;
+	margin:0;
+	padding:0;
+}
+
+.faculty td{
+	font:12px "Trebuchet MS";
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	margin:0;
+	padding:5px;
+}
+
+.faculty_main_table table, td{
+	margin:0;
+	padding:0;
+}
+
+.faculty_main_table img{
+	margin:10px;
+	padding:0;
+	vertical-align:top;
+	width:150px;
+
+}
+
+.txt{text-decoration:none;}
+
+.p_name{float:right; font-size:14px;}
+.font{font-size:13px;}
+.font1{font-size:16px; color:#009900; text-align:center;}
+#msg{
+width:400px;
+height:auto;
+float:left;}
+
+.image{
+width:180px;
+height:220px;
+background-image:url(../images/PRINCIPAL.jpg);
+background-repeat:no-repeat;
+float:left;
+margin:55px 0 0 15px;
+border:1px dotted #0099FF;}
+
+#stu_info{
+width:auto;
+height:auto;
+text-align:center;
+margin:5px 0 0 5px;
+}
