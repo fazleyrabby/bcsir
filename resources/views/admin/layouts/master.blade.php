@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'Dashboard') — BCSIR Admin</title>
+    <title>@yield('title', 'Dashboard') — NIRST Admin</title>
 
     <!-- Tabler Theme (must be in head) -->
     <script src="{{ asset('tabler/js/tabler-theme.min.js') }}"></script>
@@ -116,7 +116,7 @@
                 </button>
                 <h1 class="navbar-brand navbar-brand-autodark">
                     <a href="{{ route('admin.dashboard') }}">
-                        <span style="font-size:1rem; font-weight:600;">BCSIR Admin</span>
+                        <span style="font-size:1rem; font-weight:700; letter-spacing:0.02em; color:#FFFFFF;">NIRST Admin</span>
                     </a>
                 </h1>
                 <div class="navbar-nav flex-row d-lg-none">
@@ -262,20 +262,20 @@
         <div class="page-wrapper">
 
             {{-- Topbar --}}
-            <header class="navbar navbar-expand-md d-none d-lg-flex d-print-none" data-bs-theme="dark">
+            <header class="navbar navbar-expand-md d-none d-lg-flex d-print-none" style="background:#FFFFFF; border-bottom:1px solid #E2E8F0; padding: 10px 0;">
                 <div class="container-fluid">
                     <div class="navbar-nav flex-row ms-auto">
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link d-flex lh-1 p-0 px-2" data-bs-toggle="dropdown" aria-label="Open user menu">
-                                <span class="avatar avatar-sm">{{ substr(auth('admin')->user()?->name ?? 'A', 0, 2) }}</span>
+                                <span class="avatar avatar-sm" style="background:#EBF9F5; color:#0A4C3B; font-weight:700; border:1px solid #00BD8D;">{{ substr(auth('admin')->user()?->name ?? 'A', 0, 2) }}</span>
                                 <div class="d-none d-xl-block ps-2">
-                                    <div>{{ auth('admin')->user()?->name ?? 'Admin' }}</div>
+                                    <div style="color:#1E293B; font-weight:600; font-size:0.9rem;">{{ auth('admin')->user()?->name ?? 'Admin' }}</div>
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button type="submit" class="dropdown-item">Logout</button>
+                                    <button type="submit" class="dropdown-item text-danger"><i class="fa-solid fa-right-from-bracket me-2"></i> Logout</button>
                                 </form>
                             </div>
                         </div>
