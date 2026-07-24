@@ -39,16 +39,12 @@
             <div class="card" style="margin-top:15px;padding:15px;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:var(--radius-sm);">
                 <h5 style="margin:0 0 10px;font-size:0.85rem;text-transform:uppercase;color:#6c757d;font-weight:700;"><i class="fa-solid fa-key" style="color:var(--primary-emerald);"></i> Demo Credentials</h5>
                 <div style="margin-bottom:8px;font-size:0.9rem;">
-                    <strong>Admin Email:</strong>
+                    <strong>Email:</strong>
                     <code style="background:#e9ecef;padding:3px 8px;border-radius:4px;color:#0A4C3B;font-weight:600;">admin@nirst.gov.bd</code>
-                </div>
-                <div style="margin-bottom:8px;font-size:0.9rem;">
-                    <strong>Alt Email:</strong>
-                    <code style="background:#e9ecef;padding:3px 8px;border-radius:4px;color:#0A4C3B;font-weight:600;">admin@admin.com</code>
                 </div>
                 <div style="font-size:0.9rem;">
                     <strong>Password:</strong>
-                    <code style="background:#e9ecef;padding:3px 8px;border-radius:4px;color:#D92D20;font-weight:600;">password</code> or <code style="background:#e9ecef;padding:3px 8px;border-radius:4px;color:#D92D20;font-weight:600;">admin123</code>
+                    <code style="background:#e9ecef;padding:3px 8px;border-radius:4px;color:#D92D20;font-weight:600;">password</code>
                 </div>
             </div>
         </div>
