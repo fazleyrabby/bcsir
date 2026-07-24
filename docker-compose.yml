@@ -17,8 +17,8 @@ services:
       REDIS_HOST: redis
       REDIS_PORT: "6379"
     volumes:
-      - ./storage:/var/www/storage
-      - ./bootstrap/cache:/var/www/bootstrap/cache
+      - ./storage:/var/www/html/storage
+      - ./bootstrap/cache:/var/www/html/bootstrap/cache
     depends_on:
       mysql:
         condition: service_healthy
@@ -53,26 +53,6 @@ services:
     command: redis-server --save 60 1 --loglevel warning
     volumes:
       - redis_data:/data
-    networks:
-      - nirst
-
-  queue:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: nirst_queue
-    restart: unless-stopped
-    command: php artisan queue:work --tries=3 --timeout=90
-    env_file:
-      - .env
-    volumes:
-      - ./storage:/var/www/storage
-      - ./bootstrap/cache:/var/www/bootstrap/cache
-    depends_on:
-      mysql:
-        condition: service_healthy
-      redis:
-        condition: service_started
     networks:
       - nirst
 

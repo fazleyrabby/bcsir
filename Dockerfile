@@ -1,55 +1,56 @@
 FROM php:8.2-fpm
 
-# Set working directory
-WORKDIR /var/www
-
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
-    build-essential \
-    libpng-dev \
-    libjpeg62-turbo-dev \
-    libfreetype6-dev \
-    locales \
-    zip \
-    jpegoptim optipng pngquant gifsicle \
-    vim \
-    unzip \
     git \
     curl \
+    libpng-dev \
+    libjpeg-dev \
     libonig-dev \
-    libzip-dev \
     libxml2-dev \
-    netcat-openbsd
+    libzip-dev \
+    zip \
+    unzip \
+    nginx \
+    supervisor \
+    redis-tools
 
 # Clear apt cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip opcache
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip opcache
 
-# Install Redis extension via PECL
+# Install Redis extension
 RUN pecl install redis && docker-php-ext-enable redis
 
-# Install Composer
+# Copy Nginx and Supervisor configs
+COPY docker/nginx.conf /etc/nginx/sites-available/default
+COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY docker/php/local.ini /usr/local/etc/php/conf.d/php-local.ini
+
+# Get Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copy custom PHP config & Docker entrypoint
-COPY docker/php/local.ini /usr/local/etc/php/conf.d/local.ini
-COPY docker/entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+# Set working directory
+WORKDIR /var/www/html
 
 # Copy application files
-COPY . /var/www
+COPY . /var/www/html/
 
-# Install Composer PHP dependencies inside container
-RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+# Create storage & cache directories
+RUN mkdir -p /var/www/html/storage/app/public \
+    /var/www/html/storage/framework/cache/data \
+    /var/www/html/storage/framework/sessions \
+    /var/www/html/storage/framework/views \
+    /var/www/html/storage/logs \
+    /var/www/html/bootstrap/cache \
+    && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Set correct ownership for Laravel storage & cache
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+# Install Composer PHP dependencies
+RUN composer install --no-interaction --no-dev --optimize-autoloader
 
-EXPOSE 9000
+EXPOSE 80
 
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
-CMD ["php-fpm"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
