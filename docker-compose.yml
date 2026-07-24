@@ -1,0 +1,133 @@
+version: '3.8'
+
+services:
+  # 1. Laravel Application Service (PHP-FPM)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nirst-app
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+      APP_NAME: NIRST
+      APP_ENV: local
+      APP_KEY: base64:4Yj+V8j3S1H9m7k8F2g0xL4P7q9W3z2Y1v5B8N6m0K4=
+      APP_DEBUG: "true"
+      APP_URL: http://localhost:8000
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: nirst
+      DB_USERNAME: nirst_user
+      DB_PASSWORD: nirst_password
+      CACHE_DRIVER: redis
+      QUEUE_CONNECTION: redis
+      SESSION_DRIVER: redis
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    volumes:
+      - .:/var/www
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - nirst-network
+    depends_on:
+      - db
+      - redis
+
+  # 2. Web Server Service (Nginx Reverse Proxy)
+  web:
+    image: nginx:1.25-alpine
+    container_name: nirst-web
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www
+      - ./docker/nginx/conf.d/app.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - nirst-network
+    depends_on:
+      - app
+
+  # 3. Database Service (MySQL 8.0)
+  db:
+    image: mysql:8.0
+    container_name: nirst-db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: nirst
+      MYSQL_USER: nirst_user
+      MYSQL_PASSWORD: nirst_password
+      MYSQL_ROOT_PASSWORD: nirst_root_password
+    volumes:
+      - nirst-db-data:/var/lib/mysql
+    networks:
+      - nirst-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pnirst_root_password"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # 4. In-Memory Cache & Queue Broker (Redis 7)
+  redis:
+    image: redis:7-alpine
+    container_name: nirst-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - nirst-redis-data:/data
+    networks:
+      - nirst-network
+
+  # 5. Background Queue Worker Service
+  queue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nirst-queue
+    restart: unless-stopped
+    command: php artisan queue:work --tries=3 --timeout=90
+    volumes:
+      - .:/var/www
+    networks:
+      - nirst-network
+    depends_on:
+      - app
+      - db
+      - redis
+
+  # 6. Task Scheduler Service (Cron Worker)
+  scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nirst-scheduler
+    restart: unless-stopped
+    command: php artisan schedule:work
+    volumes:
+      - .:/var/www
+    networks:
+      - nirst-network
+    depends_on:
+      - app
+      - db
+      - redis
+
+# Volumes & Networks
+networks:
+  nirst-network:
+    driver: bridge
+
+volumes:
+  nirst-db-data:
+    driver: local
+  nirst-redis-data:
+    driver: local

@@ -1,0 +1,31 @@
+/* Custom styles for BCSIR Admin - Tabler overrides */
+
+/* Button icon spacing */
+.btn i, .btn svg {
+  vertical-align: middle;
+}
+
+.btn-xs {
+  padding: .25rem .25rem;
+}
+
+.check-out-btn {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000;
+  border-radius: 3px;
+  padding: 10px;
+  color: #7460ee;
+  display: block;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.check-out-btn:hover {
+  background-color: #e0e0e0;
+  color: #7460ee;
+}
+
+.check-out-text {
+  color: #000;
+}
