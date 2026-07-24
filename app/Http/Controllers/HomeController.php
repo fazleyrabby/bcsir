@@ -13,29 +13,50 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $latestNews = News::where('is_active', true)
-            ->orderBy('created_at', 'desc')
-            ->take(6)
-            ->get();
+        try {
+            $latestNews = News::where('is_active', true)
+                ->orderBy('created_at', 'desc')
+                ->take(6)
+                ->get();
+        } catch (\Exception $e) {
+            $latestNews = collect();
+        }
 
-        $latestNotices = Notice::where('is_active', true)
-            ->orderBy('created_at', 'desc')
-            ->take(6)
-            ->get();
+        try {
+            $latestNotices = Notice::where('is_active', true)
+                ->orderBy('created_at', 'desc')
+                ->take(6)
+                ->get();
+        } catch (\Exception $e) {
+            $latestNotices = collect();
+        }
 
-        $quickLinks = Page::where('is_published', true)
-            ->whereNotNull('type')
-            ->orderBy('title')
-            ->get()
-            ->unique('title');
+        try {
+            $quickLinks = Page::where('is_published', true)
+                ->whereNotNull('type')
+                ->orderBy('title')
+                ->get()
+                ->unique('title');
+        } catch (\Exception $e) {
+            $quickLinks = collect();
+        }
 
-        // Dynamic Real DB Stats
-        $stats = [
-            'scientists' => Employee::where('type', 'scientist')->count() ?: 12,
-            'departments' => Department::count() ?: 6,
-            'projects' => Research::count() ?: 24,
-            'publications' => Research::count() ?: 45,
-        ];
+        try {
+            // Dynamic Real DB Stats
+            $stats = [
+                'scientists'   => Employee::where('type', 'scientist')->count() ?: 12,
+                'departments'  => Department::count() ?: 6,
+                'projects'     => Research::count() ?: 24,
+                'publications' => Research::count() ?: 45,
+            ];
+        } catch (\Exception $e) {
+            $stats = [
+                'scientists'   => 12,
+                'departments'  => 6,
+                'projects'     => 24,
+                'publications' => 45,
+            ];
+        }
 
         return view('home', compact('latestNews', 'latestNotices', 'quickLinks', 'stats'));
     }
