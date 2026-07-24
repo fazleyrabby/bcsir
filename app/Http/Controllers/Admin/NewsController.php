@@ -23,17 +23,26 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:1000',
-            'slug' => 'nullable|string|max:255|unique:news',
-            'body' => 'nullable|string',
-            'image' => 'nullable|string|max:255',
+            'title'        => 'required|string|max:1000',
+            'slug'         => 'nullable|string|max:255|unique:news',
+            'body'         => 'nullable|string',
+            'image'        => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:4096',
             'published_at' => 'nullable|date',
-            'is_active' => 'boolean',
+            'is_active'    => 'boolean',
         ]);
 
-        $validated['slug'] = $validated['slug'] ?? Str::slug($validated['title']);
+        $validated['slug']     = $validated['slug'] ?? Str::slug($validated['title']);
         $validated['is_active'] = $request->boolean('is_active', true);
-        $validated['added_by'] = auth('admin')->user()?->name ?? 'admin';
+        $validated['added_by']  = auth('admin')->user()?->name ?? 'admin';
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('images/news'), $filename);
+            $validated['image'] = 'news/' . $filename;
+        } else {
+            unset($validated['image']);
+        }
 
         News::create($validated);
 
@@ -49,15 +58,29 @@ class NewsController extends Controller
     public function update(Request $request, News $news)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:1000',
-            'slug' => 'nullable|string|max:255|unique:news,slug,' . $news->id,
-            'body' => 'nullable|string',
-            'image' => 'nullable|string|max:255',
+            'title'        => 'required|string|max:1000',
+            'slug'         => 'nullable|string|max:255|unique:news,slug,' . $news->id,
+            'body'         => 'nullable|string',
+            'image'        => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:4096',
             'published_at' => 'nullable|date',
-            'is_active' => 'boolean',
+            'is_active'    => 'boolean',
         ]);
 
         $validated['is_active'] = $request->boolean('is_active', true);
+
+        if ($request->hasFile('image')) {
+            // Delete old image
+            if ($news->image && file_exists(public_path('images/' . $news->image))) {
+                unlink(public_path('images/' . $news->image));
+            }
+            $file = $request->file('image');
+            $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('images/news'), $filename);
+            $validated['image'] = 'news/' . $filename;
+        } else {
+            unset($validated['image']);
+        }
+
         $news->update($validated);
 
         return redirect()->route('admin.news.index')
@@ -66,8 +89,12 @@ class NewsController extends Controller
 
     public function destroy(News $news)
     {
+        if ($news->image && file_exists(public_path('images/' . $news->image))) {
+            unlink(public_path('images/' . $news->image));
+        }
         $news->delete();
         return redirect()->route('admin.news.index')
             ->with('success', 'News deleted successfully.');
     }
 }
+

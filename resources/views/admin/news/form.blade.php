@@ -10,7 +10,7 @@
 
     <div class="card">
         <div class="card-body">
-            <form method="POST" action="{{ isset($news) ? route('admin.news.update', $news) : route('admin.news.store') }}">
+            <form method="POST" action="{{ isset($news) ? route('admin.news.update', $news) : route('admin.news.store') }}" enctype="multipart/form-data">
                 @csrf
                 @if(isset($news)) @method('PUT') @endif
 
@@ -38,11 +38,12 @@
 
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>
-                        <input type="file" id="image" name="image" class="form-control">
+                        <input type="file" id="image" name="image" class="form-control" accept="image/*">
+                        @error('image') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                         @if(isset($news) && $news->image)
                             <div class="mt-2">
-                                <img src="{{ asset('images/' . $news->image) }}" alt="" style="max-height:60px;">
-                                <span class="text-muted ms-2 small">{{ $news->image }}</span>
+                                <img src="{{ asset('images/' . $news->image) }}" alt="" style="max-height:80px; border-radius:4px; border:1px solid #e2e8f0;">
+                                <span class="text-muted ms-2 small">Current image</span>
                             </div>
                         @endif
                     </div>
