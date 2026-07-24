@@ -1,4 +1,4 @@
-FROM php:8.3-fpm
+FROM php:8.4-fpm
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -49,7 +49,7 @@ RUN mkdir -p /var/www/html/storage/app/public \
     && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Install Composer PHP dependencies
-RUN composer install --no-interaction --no-dev --optimize-autoloader --ignore-platform-req=php+
+RUN composer install --no-interaction --no-dev --optimize-autoloader --ignore-platform-reqs
 
 EXPOSE 80
 
