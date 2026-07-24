@@ -356,6 +356,25 @@
             font-weight: 500;
         }
 
+        .ticker-track {
+            display: inline-flex;
+            animation: ticker-scroll 30s linear infinite;
+        }
+
+        .ticker-track:hover {
+            animation-play-state: paused;
+        }
+
+        .ticker-text {
+            padding-right: 50px;
+            white-space: nowrap;
+        }
+
+        @keyframes ticker-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
         /* Page Banner */
         .page-title-banner {
             background: var(--primary-dark);
@@ -771,9 +790,10 @@
                     <span>{{ __('Notice Board') }}</span>
                 </div>
                 <div class="ticker-content">
-                    <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">
-                        welcome to NIRST &nbsp;&bull;&nbsp; {{ __('Scientific Research & Innovation') }} &nbsp;&bull;&nbsp; Advanced Structure-Based Drug Design Workshop Completed &nbsp;&bull;&nbsp; National E-Tender Submissions Open 2026
-                    </marquee>
+                    <div class="ticker-track">
+                        <span class="ticker-text">welcome to NIRST &bull; {{ __('Scientific Research & Innovation') }} &bull; Advanced Structure-Based Drug Design Workshop Completed &bull; National E-Tender Submissions Open 2026</span>
+                        <span class="ticker-text">welcome to NIRST &bull; {{ __('Scientific Research & Innovation') }} &bull; Advanced Structure-Based Drug Design Workshop Completed &bull; National E-Tender Submissions Open 2026</span>
+                    </div>
                 </div>
             </div>
         </div>
