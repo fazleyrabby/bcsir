@@ -395,6 +395,19 @@
             font-size: 0.95rem;
         }
 
+        .page-title {
+            padding: 35px 0;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-subtle);
+            background: var(--bg-card);
+        }
+
+        .page-title h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
         /* Card System */
         .card {
             background: var(--bg-card);
@@ -501,29 +514,60 @@
                 align-items: stretch;
             }
 
+            .mobile-nav-toggle {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
             .nav-list {
                 display: none;
                 flex-direction: column;
                 width: 100%;
-                padding: 10px 0;
-                gap: 4px;
+                padding: 8px 0 12px;
+                gap: 2px;
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             .nav-list.is-open {
                 display: flex;
+                animation: navSlideDown 0.25s ease;
+            }
+
+            @keyframes navSlideDown {
+                from { opacity: 0; transform: translateY(-8px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .nav-item {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            .nav-item:last-child {
+                border-bottom: none;
             }
 
             .nav-link {
                 width: 100%;
-                padding: 10px 14px;
+                padding: 13px 14px;
+                text-align: left;
+                justify-content: flex-start;
+                font-size: 0.92rem;
+                border-radius: var(--radius-sm);
+            }
+
+            .nav-link i {
+                width: 22px;
+                text-align: center;
+                font-size: 0.95rem;
             }
 
             .nav-admin-btn {
                 margin-left: 0;
-                margin-top: 6px;
-                text-align: center;
-                justify-content: center;
+                margin-top: 8px;
+                text-align: left;
+                justify-content: flex-start;
+                border-radius: var(--radius-sm);
             }
 
             .grid-3, .grid-4 {
