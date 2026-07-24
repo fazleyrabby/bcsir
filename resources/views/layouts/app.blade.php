@@ -791,8 +791,24 @@
                 </div>
                 <div class="ticker-content">
                     <div class="ticker-track">
-                        <span class="ticker-text">welcome to NIRST &bull; {{ __('Scientific Research & Innovation') }} &bull; Advanced Structure-Based Drug Design Workshop Completed &bull; National E-Tender Submissions Open 2026</span>
-                        <span class="ticker-text">welcome to NIRST &bull; {{ __('Scientific Research & Innovation') }} &bull; Advanced Structure-Based Drug Design Workshop Completed &bull; National E-Tender Submissions Open 2026</span>
+                        @php
+                            $tickerNotices = App\Models\Notice::where('is_active', true)->orderBy('created_at', 'desc')->take(8)->get();
+                            $defaultText = 'welcome to NIRST &bull; Scientific Research & Innovation';
+                        @endphp
+                        <span class="ticker-text">
+                            @forelse($tickerNotices as $notice)
+                                &bull; {{ $notice->title }} 
+                            @empty
+                                {{ $defaultText }}
+                            @endforelse
+                        </span>
+                        <span class="ticker-text">
+                            @forelse($tickerNotices as $notice)
+                                &bull; {{ $notice->title }} 
+                            @empty
+                                {{ $defaultText }}
+                            @endforelse
+                        </span>
                     </div>
                 </div>
             </div>
