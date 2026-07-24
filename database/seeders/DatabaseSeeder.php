@@ -15,17 +15,14 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Schema;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
         // 1. Clean foreign keys & truncate
-        if (DB::getDriverName() === 'mysql') {
-            DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        } elseif (DB::getDriverName() === 'sqlite') {
-            DB::statement('PRAGMA foreign_keys = OFF;');
-        }
+        Schema::disableForeignKeyConstraints();
         Department::truncate();
         Employee::truncate();
         News::truncate();
@@ -36,11 +33,7 @@ class DatabaseSeeder extends Seeder
         GalleryItem::truncate();
         User::truncate();
         Admin::truncate();
-        if (DB::getDriverName() === 'mysql') {
-            DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-        } elseif (DB::getDriverName() === 'sqlite') {
-            DB::statement('PRAGMA foreign_keys = ON;');
-        }
+        Schema::enableForeignKeyConstraints();
 
         // 2. Admin & System Users
         Admin::create([
