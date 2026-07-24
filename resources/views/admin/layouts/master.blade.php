@@ -134,7 +134,7 @@
                 </div>
 
                 <div class="collapse navbar-collapse" id="sidebar-menu">
-                    <ul class="navbar-nav pt-lg-3">
+                    <ul class="navbar-nav pt-lg-1">
 
                         {{-- Dashboard --}}
                         <li class="nav-item">

@@ -33,50 +33,66 @@
   background-color: #F8FAFC;
 }
 
-/* Badges: High Contrast, Soft Pill Badges */
+/* ============================================
+   BADGE OVERRIDES — force soft pastel palette
+   Tabler uses CSS vars + color-mix(), so we
+   override the vars AND the computed value.
+   ============================================ */
+
+/* Base badge shape */
 .badge {
   font-weight: 600 !important;
-  font-size: 0.75rem !important;
+  font-size: 0.74rem !important;
   letter-spacing: 0.02em !important;
   padding: 4px 10px !important;
   border-radius: 6px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 4px !important;
-  line-height: 1.2 !important;
+  line-height: 1.4 !important;
 }
 
-/* Research & Info Badges */
-.badge.bg-info, .badge.bg-primary, .badge-info, .badge-primary {
-  background-color: #E0F2FE !important;
+/* Research / Info — soft sky blue */
+.badge.bg-info {
+  --tblr-info: #E0F2FE;
+  background: #E0F2FE !important;
   color: #0369A1 !important;
   border: 1px solid #BAE6FD !important;
 }
 
-/* Active & Success Badges */
-.badge.bg-success, .badge-success {
-  background-color: #DCFCE7 !important;
+/* Primary — soft indigo */
+.badge.bg-primary {
+  --tblr-primary: #EEF2FF;
+  background: #EEF2FF !important;
+  color: #3730A3 !important;
+  border: 1px solid #C7D2FE !important;
+}
+
+/* Active / Success — soft emerald */
+.badge.bg-success {
+  --tblr-success: #DCFCE7;
+  background: #DCFCE7 !important;
   color: #15803D !important;
   border: 1px solid #BBF7D0 !important;
 }
 
-/* Inactive & Danger Badges */
-.badge.bg-danger, .badge-danger {
-  background-color: #FEE2E2 !important;
+/* Danger / Inactive — soft rose */
+.badge.bg-danger {
+  --tblr-danger: #FEE2E2;
+  background: #FEE2E2 !important;
   color: #B91C1C !important;
   border: 1px solid #FECACA !important;
 }
 
-/* Secondary & Admin Badges */
-.badge.bg-secondary, .badge-secondary {
-  background-color: #F1F5F9 !important;
+/* Secondary / Admin — soft slate */
+.badge.bg-secondary {
+  --tblr-secondary: #F1F5F9;
+  background: #F1F5F9 !important;
   color: #475569 !important;
-  border: 1px solid #E2E8F0 !important;
+  border: 1px solid #CBD5E1 !important;
 }
 
-/* Warning & Pending Badges */
-.badge.bg-warning, .badge-warning {
-  background-color: #FEF3C7 !important;
+/* Warning — soft amber */
+.badge.bg-warning {
+  --tblr-warning: #FEF3C7;
+  background: #FEF3C7 !important;
   color: #B45309 !important;
   border: 1px solid #FDE68A !important;
 }
