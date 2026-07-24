@@ -78,12 +78,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin123'),
         ]);
 
-        User::create([
-            'name' => 'Admin User',
-            'email' => 'admin@admin.com',
-            'password' => Hash::make('password'),
-        ]);
-
         // 3. Departments & Research Divisions (10 Divisions)
         $deptsData = [
             [
