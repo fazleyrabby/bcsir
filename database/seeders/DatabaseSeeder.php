@@ -48,6 +48,12 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
 
+        Admin::create([
+            'name' => 'BCSIR Legacy Admin',
+            'email' => 'admin@bcsir.gov.bd',
+            'password' => Hash::make('admin123'),
+        ]);
+
         User::create([
             'name' => 'NIRST Senior Scientist',
             'email' => 'admin@nirst.gov.bd',
@@ -58,6 +64,18 @@ class DatabaseSeeder extends Seeder
             'name' => 'NIRST Researcher',
             'email' => 'researcher@nirst.gov.bd',
             'password' => Hash::make('password'),
+        ]);
+
+        User::create([
+            'name' => 'Admin User',
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('password'),
+        ]);
+
+        User::create([
+            'name' => 'BCSIR Legacy User',
+            'email' => 'admin@bcsir.gov.bd',
+            'password' => Hash::make('admin123'),
         ]);
 
         User::create([
