@@ -8,6 +8,18 @@
 
     <title>@yield('title', 'Dashboard') — NIRST Admin</title>
 
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="NIRST">
+    <meta property="og:title" content="NIRST Admin">
+    <meta property="og:description" content="National Institute of Research, Science & Technology - Admin Panel">
+    <meta property="og:image" content="{{ url('nirst-og.png') }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ url('nirst-og.png') }}">
+
     <!-- Tabler Theme (must be in head) -->
     <script src="{{ asset('tabler/js/tabler-theme.min.js') }}"></script>
 
