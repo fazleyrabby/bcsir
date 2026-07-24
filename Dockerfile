@@ -18,7 +18,8 @@ RUN apt-get update && apt-get install -y \
     curl \
     libonig-dev \
     libzip-dev \
-    libxml2-dev
+    libxml2-dev \
+    netcat-openbsd
 
 # Clear apt cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -41,6 +42,9 @@ RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 # Copy application files
 COPY . /var/www
+
+# Install Composer PHP dependencies inside container
+RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
 # Set correct ownership for Laravel storage & cache
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
