@@ -21,7 +21,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // 1. Clean foreign keys & truncate
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        if (DB::getDriverName() === 'mysql') {
+            DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        } elseif (DB::getDriverName() === 'sqlite') {
+            DB::statement('PRAGMA foreign_keys = OFF;');
+        }
         Department::truncate();
         Employee::truncate();
         News::truncate();
@@ -32,7 +36,11 @@ class DatabaseSeeder extends Seeder
         GalleryItem::truncate();
         User::truncate();
         Admin::truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        if (DB::getDriverName() === 'mysql') {
+            DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        } elseif (DB::getDriverName() === 'sqlite') {
+            DB::statement('PRAGMA foreign_keys = ON;');
+        }
 
         // 2. Admin & System Users
         Admin::create([
