@@ -1,0 +1,43 @@
+name: Deploy
+
+on:
+  push:
+    branches: [deploy]
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, linux, laravel]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify runner
+        run: |
+          echo "Hostname: $(hostname)"
+          echo "Docker: $(docker --version)"
+
+      - name: Deploy
+        run: |
+          rsync -a --delete \
+            --exclude '.env' \
+            --exclude '.git' \
+            --exclude 'storage' \
+            --exclude 'bootstrap/cache' \
+            "$GITHUB_WORKSPACE/" \
+            /home/fazley/apps/nirst/
+          cd /home/fazley/apps/nirst
+          docker compose -f docker-compose.yml down || true
+          docker compose -f docker-compose.yml up -d --build
+
+      - name: Post-deploy
+        run: |
+          docker exec nirst_app php artisan key:generate --force || true
+          docker exec nirst_app php artisan migrate --force
+          docker exec nirst_app php artisan config:cache
+          docker exec nirst_app php artisan route:cache
+          docker exec nirst_app php artisan view:cache
+
+      - name: Health check
+        run: |
+          docker compose -f /home/fazley/apps/nirst/docker-compose.yml ps
