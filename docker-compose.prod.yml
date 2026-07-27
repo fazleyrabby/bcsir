@@ -1,0 +1,56 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nirst_app
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-8086}:80"
+    command: sh -c "chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache && exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nirst.rule=Host(`nirst.fazleyrabbi.xyz`)"
+      - "traefik.http.routers.nirst.entrypoints=web"
+      - "traefik.http.services.nirst.loadbalancer.server.port=80"
+    env_file:
+      - .env
+    environment:
+      APP_ENV: production
+      APP_DEBUG: "false"
+      DB_HOST: mysql-shared
+      DB_PORT: "3306"
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+    volumes:
+      - ./storage:/var/www/html/storage
+      - ./bootstrap/cache:/var/www/html/bootstrap/cache
+      - ./.env:/var/www/html/.env
+    depends_on:
+      redis:
+        condition: service_started
+    networks:
+      - traefik
+      - nirst
+      - mysql-shared
+
+  redis:
+    image: redis:7-alpine
+    container_name: nirst_redis
+    restart: unless-stopped
+    command: redis-server --save 60 1 --loglevel warning
+    volumes:
+      - redis_data:/data
+    networks:
+      - nirst
+
+volumes:
+  redis_data:
+
+networks:
+  traefik:
+    external: true
+  nirst:
+    driver: bridge
+  mysql-shared:
+    external: true
